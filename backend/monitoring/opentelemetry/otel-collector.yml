@@ -1,0 +1,100 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
+        cors:
+          allowed_origins:
+            - "http://localhost:*"
+            - "https://*.ailearning.example.com"
+
+  # Scrape Prometheus metrics from FastAPI app
+  prometheus:
+    config:
+      scrape_configs:
+        - job_name: "api"
+          scrape_interval: 15s
+          static_configs:
+            - targets: ["api:8000"]
+          metrics_path: /metrics
+
+processors:
+  batch:
+    timeout: 5s
+    send_batch_size: 1024
+
+  memory_limiter:
+    check_interval: 1s
+    limit_percentage: 75
+    spike_limit_percentage: 15
+
+  # Add service name/version as resource attributes
+  resource:
+    attributes:
+      - key: service.name
+        value: ai-learning-platform
+        action: insert
+      - key: deployment.environment
+        value: production
+        action: insert
+
+  # Tail-based sampling: keep 100% of error traces, 10% of success
+  tail_sampling:
+    decision_wait: 10s
+    policies:
+      - name: errors
+        type: status_code
+        status_code: {status_codes: [ERROR]}
+      - name: slow_traces
+        type: latency
+        latency: {threshold_ms: 1000}
+      - name: sample_otherwise
+        type: probabilistic
+        probabilistic: {sampling_percentage: 10}
+
+exporters:
+  # Jaeger for distributed tracing
+  otlp/jaeger:
+    endpoint: jaeger:4317
+    tls:
+      insecure: true
+
+  # Prometheus for metrics
+  prometheus:
+    endpoint: "0.0.0.0:8889"
+    namespace: otel
+
+  # Loki for logs
+  loki:
+    endpoint: http://loki:3100/loki/api/v1/push
+    labels:
+      attributes:
+        service.name: service_name
+        level: level
+
+  # Debug exporter (disable in production)
+  # debug:
+  #   verbosity: detailed
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [memory_limiter, resource, batch, tail_sampling]
+      exporters: [otlp/jaeger]
+
+    metrics:
+      receivers: [otlp, prometheus]
+      processors: [memory_limiter, resource, batch]
+      exporters: [prometheus]
+
+    logs:
+      receivers: [otlp]
+      processors: [memory_limiter, resource, batch]
+      exporters: [loki]
+
+  telemetry:
+    logs:
+      level: warn

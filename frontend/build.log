@@ -1,0 +1,418 @@
+
+> modern-learning-platform@0.1.0 build
+> next build
+
+▲ Next.js 16.2.6 (Turbopack)
+
+  Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 15 errors:
+./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find native binding. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    [at Object.<anonymous> (/home/telepathy/projects/ai-projects/modern-learning-platform/node_modules/@tailwindcss/oxide/index.js:563:11)]
+    [at Module._compile (node:internal/modules/cjs/loader:1521:14)]
+    [at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)]
+    [at Module.load (node:internal/modules/cjs/loader:1266:32)]
+    [at Module._load (node:internal/modules/cjs/loader:1091:12)]
+    [at Module.require (node:internal/modules/cjs/loader:1289:19)]
+    [at require (node:internal/modules/helpers:182:18)]
+    [at Object.<anonymous> (/home/telepathy/projects/ai-projects/modern-learning-platform/node_modules/@tailwindcss/postcss/dist/index.js:1:1406)]
+    [at Module._compile (node:internal/modules/cjs/loader:1521:14)]
+    [at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)]
+Caused by: Error: Cannot find module '@tailwindcss/oxide-linux-x64-gnu'
+Require stack:
+- /home/telepathy/projects/ai-projects/modern-learning-platform/node_modules/@tailwindcss/oxide/index.js
+- /home/telepathy/projects/ai-projects/modern-learning-platform/node_modules/@tailwindcss/postcss/dist/index.js
+- /home/telepathy/projects/ai-projects/modern-learning-platform/.next/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /home/telepathy/projects/ai-projects/modern-learning-platform/.next/build/chunks/[turbopack]_runtime.js
+- /home/telepathy/projects/ai-projects/modern-learning-platform/.next/build/postcss.js
+    [at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)]
+    [at Module._load (node:internal/modules/cjs/loader:1038:27)]
+    [at Module.require (node:internal/modules/cjs/loader:1289:19)]
+    [at require (node:internal/modules/helpers:182:18)]
+    [at requireNative (/home/telepathy/projects/ai-projects/modern-learning-platform/node_modules/@tailwindcss/oxide/index.js:288:27)]
+    [at Object.<anonymous> (/home/telepathy/projects/ai-projects/modern-learning-platform/node_modules/@tailwindcss/oxide/index.js:526:17)]
+    [at Module._compile (node:internal/modules/cjs/loader:1521:14)]
+    [at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)]
+    [at Module.load (node:internal/modules/cjs/loader:1266:32)]
+    [at Module._load (node:internal/modules/cjs/loader:1091:12)]
+Caused by: Error: Cannot find module './tailwindcss-oxide.linux-x64-gnu.node'
+Require stack:
+- /home/telepathy/projects/ai-projects/modern-learning-platform/node_modules/@tailwindcss/oxide/index.js
+- /home/telepathy/projects/ai-projects/modern-learning-platform/node_modules/@tailwindcss/postcss/dist/index.js
+- /home/telepathy/projects/ai-projects/modern-learning-platform/.next/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /home/telepathy/projects/ai-projects/modern-learning-platform/.next/build/chunks/[turbopack]_runtime.js
+- /home/telepathy/projects/ai-projects/modern-learning-platform/.next/build/postcss.js
+    [at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)]
+    [at Module._load (node:internal/modules/cjs/loader:1038:27)]
+    [at Module.require (node:internal/modules/cjs/loader:1289:19)]
+    [at require (node:internal/modules/helpers:182:18)]
+    [at requireNative (/home/telepathy/projects/ai-projects/modern-learning-platform/node_modules/@tailwindcss/oxide/index.js:283:18)]
+    [at Object.<anonymous> (/home/telepathy/projects/ai-projects/modern-learning-platform/node_modules/@tailwindcss/oxide/index.js:526:17)]
+    [at Module._compile (node:internal/modules/cjs/loader:1521:14)]
+    [at Module._extensions..js (node:internal/modules/cjs/loader:1623:10)]
+    [at Module.load (node:internal/modules/cjs/loader:1266:32)]
+    [at Module._load (node:internal/modules/cjs/loader:1091:12)]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+
+./src/app/(dashboard)/layout.tsx:19:1
+Module not found: Can't resolve '@/components/ui/avatar'
+  [90m17 |[0m ...[36mt[0m { [33mButton[0m } [36mfrom[0m [32m"@/components/ui/button"[0m;
+  [90m18 |[0m ...[36mt[0m { useState } [36mfrom[0m [32m"react"[0m;
+[31m[1m>[0m [90m19 |[0m ...[36mt[0m { [33mAvatar[0m, [33mAvatarFallback[0m, [33mAvatarImage[0m } [36mfrom[0m [32m"@/components/ui/ava...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m20 |[0m ...
+  [90m21 |[0m ... navItems = [
+  [90m22 |[0m ...ref: [32m"/dashboard"[0m, icon: [33mLayoutDashboard[0m, label: [32m"Dashboard"[0m },
+
+Import map: aliased to relative './src/components/ui/avatar' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(dashboard)/layout.tsx [Client Component Browser]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(dashboard)/layout.tsx [Client Component SSR]
+    ./src/app/(dashboard)/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/(dashboard)/labs/page.tsx:7:1
+Module not found: Can't resolve '@/components/ui/badge'
+  [90m 5 |[0m [36mimport[0m { [33mCard[0m, [33mCardContent[0m, [33mCardDescription[0m, [33mCardHeader[0m, [33mCardTitle[0m } [36mf...[0m
+  [90m 6 |[0m [36mimport[0m { [33mTerminalSquare[0m, [33mServer[0m, [33mDatabase[0m, [33mPlay[0m, [33mSquareTerminal[0m } [36mfrom[0m.[32m..[0m
+[31m[1m>[0m [90m 7 |[0m [36mimport[0m { [33mBadge[0m } [36mfrom[0m [32m"@/components/ui/badge"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m [36mimport[0m { [33mScrollArea[0m } [36mfrom[0m [32m"@/components/ui/scroll-area"[0m;
+  [90m 9 |[0m [36mimport[0m { [33mTabs[0m, [33mTabsContent[0m, [33mTabsList[0m, [33mTabsTrigger[0m } [36mfrom[0m [32m"@/components...[0m
+  [90m10 |[0m
+
+Import map: aliased to relative './src/components/ui/badge' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(dashboard)/labs/page.tsx [Client Component Browser]
+    ./src/app/(dashboard)/labs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(dashboard)/labs/page.tsx [Client Component SSR]
+    ./src/app/(dashboard)/labs/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/(dashboard)/practice/[id]/page.tsx:9:1
+Module not found: Can't resolve '@/components/ui/badge'
+  [90m 7 |[0m [36mimport[0m { [33mPlay[0m, [33mCheckCircle2[0m, [33mMessageSquare[0m, [33mMaximize2[0m, [33mRotateCcw[0m } [36mfro.[0m.[32m.[0m
+  [90m 8 |[0m [36mimport[0m { [33mScrollArea[0m } [36mfrom[0m [32m"@/components/ui/scroll-area"[0m;
+[31m[1m>[0m [90m 9 |[0m [36mimport[0m { [33mBadge[0m } [36mfrom[0m [32m"@/components/ui/badge"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m10 |[0m
+  [90m11 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mCodingProblemPage[0m({ params }: { params: { id: ...
+  [90m12 |[0m   [36mconst[0m [code, setCode] = useState([32m'function twoSum(nums, target) {\n ...[0m
+
+Import map: aliased to relative './src/components/ui/badge' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(dashboard)/practice/[id]/page.tsx [Client Component Browser]
+    ./src/app/(dashboard)/practice/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(dashboard)/practice/[id]/page.tsx [Client Component SSR]
+    ./src/app/(dashboard)/practice/[id]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/(dashboard)/dashboard/page.tsx:1:1
+Module not found: Can't resolve '@/components/ui/card'
+[31m[1m>[0m [90m1 |[0m ... [33mCardContent[0m, [33mCardDescription[0m, [33mCardHeader[0m, [33mCardTitle[0m } [36mfrom[0m [32m"@/compo...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m ...[33mess[0m } [36mfrom[0m [32m"@/components/ui/progress"[0m;
+  [90m3 |[0m ...[33mn[0m } [36mfrom[0m [32m"@/components/ui/button"[0m;
+  [90m4 |[0m ... [33mTrophy[0m, [33mCode2[0m, [33mFlame[0m, [33mNetwork[0m } [36mfrom[0m [32m"lucide-react"[0m;
+
+Import map: aliased to relative './src/components/ui/card' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/(dashboard)/labs/page.tsx:5:1
+Module not found: Can't resolve '@/components/ui/card'
+  [90m3 |[0m ...ate } [36mfrom[0m [32m"react"[0m;
+  [90m4 |[0m ...[33mn[0m } [36mfrom[0m [32m"@/components/ui/button"[0m;
+[31m[1m>[0m [90m5 |[0m ... [33mCardContent[0m, [33mCardDescription[0m, [33mCardHeader[0m, [33mCardTitle[0m } [36mfrom[0m [32m"@/compo...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m6 |[0m ...[33mnalSquare[0m, [33mServer[0m, [33mDatabase[0m, [33mPlay[0m, [33mSquareTerminal[0m } [36mfrom[0m [32m"lucide-rea...[0m
+  [90m7 |[0m ... } [36mfrom[0m [32m"@/components/ui/badge"[0m;
+  [90m8 |[0m ...[33mlArea[0m } [36mfrom[0m [32m"@/components/ui/scroll-area"[0m;
+
+Import map: aliased to relative './src/components/ui/card' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(dashboard)/labs/page.tsx [Client Component Browser]
+    ./src/app/(dashboard)/labs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(dashboard)/labs/page.tsx [Client Component SSR]
+    ./src/app/(dashboard)/labs/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/(auth)/login/page.tsx:5:1
+Module not found: Can't resolve '@/components/ui/input'
+  [90m3 |[0m [36mimport[0m [33mLink[0m [36mfrom[0m [32m"next/link"[0m;
+  [90m4 |[0m [36mimport[0m { [33mButton[0m } [36mfrom[0m [32m"@/components/ui/button"[0m;
+[31m[1m>[0m [90m5 |[0m [36mimport[0m { [33mInput[0m } [36mfrom[0m [32m"@/components/ui/input"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m6 |[0m [36mimport[0m { [33mLabel[0m } [36mfrom[0m [32m"@/components/ui/label"[0m;
+  [90m7 |[0m [36mimport[0m { [33mCode2[0m, [33mGithub[0m } [36mfrom[0m [32m"lucide-react"[0m;
+  [90m8 |[0m [36mimport[0m { useState } [36mfrom[0m [32m"react"[0m;
+
+Import map: aliased to relative './src/components/ui/input' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(auth)/login/page.tsx [Client Component Browser]
+    ./src/app/(auth)/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(auth)/login/page.tsx [Client Component SSR]
+    ./src/app/(auth)/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/(auth)/login/page.tsx:6:1
+Module not found: Can't resolve '@/components/ui/label'
+  [90m4 |[0m [36mimport[0m { [33mButton[0m } [36mfrom[0m [32m"@/components/ui/button"[0m;
+  [90m5 |[0m [36mimport[0m { [33mInput[0m } [36mfrom[0m [32m"@/components/ui/input"[0m;
+[31m[1m>[0m [90m6 |[0m [36mimport[0m { [33mLabel[0m } [36mfrom[0m [32m"@/components/ui/label"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m7 |[0m [36mimport[0m { [33mCode2[0m, [33mGithub[0m } [36mfrom[0m [32m"lucide-react"[0m;
+  [90m8 |[0m [36mimport[0m { useState } [36mfrom[0m [32m"react"[0m;
+  [90m9 |[0m
+
+Import map: aliased to relative './src/components/ui/label' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(auth)/login/page.tsx [Client Component Browser]
+    ./src/app/(auth)/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(auth)/login/page.tsx [Client Component SSR]
+    ./src/app/(auth)/login/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/(dashboard)/labs/page.tsx:8:1
+Module not found: Can't resolve '@/components/ui/scroll-area'
+  [90m 6 |[0m [36mimport[0m { [33mTerminalSquare[0m, [33mServer[0m, [33mDatabase[0m, [33mPlay[0m, [33mSquareTerminal[0m } [36mfrom[0m.[32m..[0m
+  [90m 7 |[0m [36mimport[0m { [33mBadge[0m } [36mfrom[0m [32m"@/components/ui/badge"[0m;
+[31m[1m>[0m [90m 8 |[0m [36mimport[0m { [33mScrollArea[0m } [36mfrom[0m [32m"@/components/ui/scroll-area"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 9 |[0m [36mimport[0m { [33mTabs[0m, [33mTabsContent[0m, [33mTabsList[0m, [33mTabsTrigger[0m } [36mfrom[0m [32m"@/components...[0m
+  [90m10 |[0m
+  [90m11 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mDevOpsLabsPage[0m() {
+
+Import map: aliased to relative './src/components/ui/scroll-area' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(dashboard)/labs/page.tsx [Client Component Browser]
+    ./src/app/(dashboard)/labs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(dashboard)/labs/page.tsx [Client Component SSR]
+    ./src/app/(dashboard)/labs/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/(dashboard)/practice/[id]/page.tsx:8:1
+Module not found: Can't resolve '@/components/ui/scroll-area'
+  [90m 6 |[0m [36mimport[0m [33mEditor[0m [36mfrom[0m [32m"@monaco-editor/react"[0m;
+  [90m 7 |[0m [36mimport[0m { [33mPlay[0m, [33mCheckCircle2[0m, [33mMessageSquare[0m, [33mMaximize2[0m, [33mRotateCcw[0m } [36mfro.[0m.[32m.[0m
+[31m[1m>[0m [90m 8 |[0m [36mimport[0m { [33mScrollArea[0m } [36mfrom[0m [32m"@/components/ui/scroll-area"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 9 |[0m [36mimport[0m { [33mBadge[0m } [36mfrom[0m [32m"@/components/ui/badge"[0m;
+  [90m10 |[0m
+  [90m11 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mCodingProblemPage[0m({ params }: { params: { id: ...
+
+Import map: aliased to relative './src/components/ui/scroll-area' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(dashboard)/practice/[id]/page.tsx [Client Component Browser]
+    ./src/app/(dashboard)/practice/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(dashboard)/practice/[id]/page.tsx [Client Component SSR]
+    ./src/app/(dashboard)/practice/[id]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/(dashboard)/labs/page.tsx:9:1
+Module not found: Can't resolve '@/components/ui/tabs'
+  [90m 7 |[0m ...{ [33mBadge[0m } [36mfrom[0m [32m"@/components/ui/badge"[0m;
+  [90m 8 |[0m ...{ [33mScrollArea[0m } [36mfrom[0m [32m"@/components/ui/scroll-area"[0m;
+[31m[1m>[0m [90m 9 |[0m ...{ [33mTabs[0m, [33mTabsContent[0m, [33mTabsList[0m, [33mTabsTrigger[0m } [36mfrom[0m [32m"@/components/ui/...[0m
+  [90m   |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m10 |[0m ...
+  [90m11 |[0m ...[36mdefault[0m [36mfunction[0m [33mDevOpsLabsPage[0m() {
+  [90m12 |[0m ... [isTerminalActive, setIsTerminalActive] = useState([36mfalse[0m);
+
+Import map: aliased to relative './src/components/ui/tabs' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(dashboard)/labs/page.tsx [Client Component Browser]
+    ./src/app/(dashboard)/labs/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(dashboard)/labs/page.tsx [Client Component SSR]
+    ./src/app/(dashboard)/labs/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/(dashboard)/practice/[id]/page.tsx:5:1
+Module not found: Can't resolve '@/components/ui/tabs'
+  [90m3 |[0m ... { useState } [36mfrom[0m [32m"react"[0m;
+  [90m4 |[0m ... { [33mButton[0m } [36mfrom[0m [32m"@/components/ui/button"[0m;
+[31m[1m>[0m [90m5 |[0m ... { [33mTabs[0m, [33mTabsContent[0m, [33mTabsList[0m, [33mTabsTrigger[0m } [36mfrom[0m [32m"@/components/ui/...[0m
+  [90m  |[0m    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m6 |[0m ... [33mEditor[0m [36mfrom[0m [32m"@monaco-editor/react"[0m;
+  [90m7 |[0m ... { [33mPlay[0m, [33mCheckCircle2[0m, [33mMessageSquare[0m, [33mMaximize2[0m, [33mRotateCcw[0m } [36mfrom[0m [32m"l...[0m
+  [90m8 |[0m ... { [33mScrollArea[0m } [36mfrom[0m [32m"@/components/ui/scroll-area"[0m;
+
+Import map: aliased to relative './src/components/ui/tabs' inside of [project]/
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(dashboard)/practice/[id]/page.tsx [Client Component Browser]
+    ./src/app/(dashboard)/practice/[id]/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(dashboard)/practice/[id]/page.tsx [Client Component SSR]
+    ./src/app/(dashboard)/practice/[id]/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/layout.tsx:5:1
+Module not found: Can't resolve '@/components/ui/toaster'
+  [90m3 |[0m [36mimport[0m [32m"./globals.css"[0m;
+  [90m4 |[0m [36mimport[0m { [33mThemeProvider[0m } [36mfrom[0m [32m"@/providers/theme-provider"[0m;
+[31m[1m>[0m [90m5 |[0m [36mimport[0m { [33mToaster[0m } [36mfrom[0m [32m"@/components/ui/toaster"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m6 |[0m
+  [90m7 |[0m [36mconst[0m inter = [33mInter[0m({ subsets: [[32m"latin"[0m] });
+  [90m8 |[0m
+
+Import map: aliased to relative './src/components/ui/toaster' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/(auth)/login/page.tsx:7:1
+Export Github doesn't exist in target module
+  [90m 5 |[0m [36mimport[0m { [33mInput[0m } [36mfrom[0m [32m"@/components/ui/input"[0m;
+  [90m 6 |[0m [36mimport[0m { [33mLabel[0m } [36mfrom[0m [32m"@/components/ui/label"[0m;
+[31m[1m>[0m [90m 7 |[0m [36mimport[0m { [33mCode2[0m, [33mGithub[0m } [36mfrom[0m [32m"lucide-react"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m [36mimport[0m { useState } [36mfrom[0m [32m"react"[0m;
+  [90m 9 |[0m
+  [90m10 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mLoginPage[0m() {
+
+The export Github was not found in module [project]/node_modules/lucide-react/dist/esm/lucide-react.mjs [app-client] (ecmascript).
+Did you mean to import Gift?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(auth)/login/page.tsx [Client Component Browser]
+    ./src/app/(auth)/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(auth)/login/page.tsx [Client Component SSR]
+    ./src/app/(auth)/login/page.tsx [Server Component]
+
+
+./src/app/(auth)/login/page.tsx:7:1
+Export Github doesn't exist in target module
+  [90m 5 |[0m [36mimport[0m { [33mInput[0m } [36mfrom[0m [32m"@/components/ui/input"[0m;
+  [90m 6 |[0m [36mimport[0m { [33mLabel[0m } [36mfrom[0m [32m"@/components/ui/label"[0m;
+[31m[1m>[0m [90m 7 |[0m [36mimport[0m { [33mCode2[0m, [33mGithub[0m } [36mfrom[0m [32m"lucide-react"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m [36mimport[0m { useState } [36mfrom[0m [32m"react"[0m;
+  [90m 9 |[0m
+  [90m10 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mLoginPage[0m() {
+
+The export Github was not found in module [project]/node_modules/lucide-react/dist/esm/lucide-react.mjs [app-ssr] (ecmascript).
+Did you mean to import Gift?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(auth)/login/page.tsx [Client Component Browser]
+    ./src/app/(auth)/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(auth)/login/page.tsx [Client Component SSR]
+    ./src/app/(auth)/login/page.tsx [Server Component]
+
+
+    at <unknown> (./src/app/(dashboard)/layout.tsx:19:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/(dashboard)/labs/page.tsx:7:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/(dashboard)/practice/[id]/page.tsx:9:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/(dashboard)/dashboard/page.tsx:1:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/(dashboard)/labs/page.tsx:5:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/(auth)/login/page.tsx:5:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/(auth)/login/page.tsx:6:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/(dashboard)/labs/page.tsx:8:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/(dashboard)/practice/[id]/page.tsx:8:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/(dashboard)/labs/page.tsx:9:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/(dashboard)/practice/[id]/page.tsx:5:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/layout.tsx:5:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/(auth)/login/page.tsx:7:1)
+    at <unknown> (./src/app/(auth)/login/page.tsx:7:1)

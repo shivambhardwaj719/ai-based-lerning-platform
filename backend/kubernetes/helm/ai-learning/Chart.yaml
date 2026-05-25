@@ -1,0 +1,23 @@
+apiVersion: v2
+name: ai-learning
+description: AI-native technical learning platform
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+keywords:
+  - ai
+  - learning
+  - fastapi
+  - education
+maintainers:
+  - name: Platform Team
+    email: platform@ailearning.example.com
+dependencies:
+  - name: postgresql
+    version: "13.x.x"
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: postgresql.enabled
+  - name: redis
+    version: "18.x.x"
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: redis.enabled

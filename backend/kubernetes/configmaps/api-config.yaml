@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: api-config
+  namespace: ai-learning
+  labels:
+    app: ai-learning-api
+    component: config
+data:
+  ENVIRONMENT: "production"
+  LOG_LEVEL: "INFO"
+  JSON_LOGS: "true"
+  API_HOST: "0.0.0.0"
+  API_PORT: "8000"
+  API_WORKERS: "4"
+
+  # Database
+  DATABASE_POOL_SIZE: "20"
+  DATABASE_MAX_OVERFLOW: "30"
+  DATABASE_POOL_TIMEOUT: "30"
+
+  # Redis
+  REDIS_MAX_CONNECTIONS: "100"
+
+  # Celery
+  CELERY_WORKER_CONCURRENCY: "4"
+  CELERY_TASK_SOFT_TIME_LIMIT: "300"
+  CELERY_TASK_TIME_LIMIT: "600"
+
+  # Rate limiting
+  RATE_LIMIT_GENERAL: "60"
+  RATE_LIMIT_AUTH: "10"
+  RATE_LIMIT_SUBMIT: "10"
+
+  # JWT
+  ACCESS_TOKEN_EXPIRE_MINUTES: "15"
+  REFRESH_TOKEN_EXPIRE_DAYS: "30"
+
+  # Code execution
+  CODE_EXECUTION_TIMEOUT: "10"
+  CODE_EXECUTION_MEMORY_MB: "256"
+
+  # Elasticsearch
+  ES_INDEX_PROBLEMS: "problems"
+  ES_INDEX_USERS: "users"
+
+  # Feature flags
+  ENABLE_AI_FEEDBACK: "true"
+  ENABLE_PLAGIARISM_CHECK: "true"
+  ENABLE_LABS: "true"
+  ENABLE_PAYMENTS: "true"

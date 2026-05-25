@@ -1,0 +1,27 @@
+# Celery worker Dockerfile
+FROM python:3.11-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential libpq-dev docker.io \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY pyproject.toml ./
+RUN pip install poetry && \
+    poetry config virtualenvs.create false && \
+    poetry install --no-dev --no-interaction
+
+COPY . .
+
+RUN groupadd -r worker && useradd -r -g worker worker
+USER worker
+
+CMD ["celery", "-A", "workers.celery_app", "worker", \
+     "--loglevel=info", \
+     "--queues=submissions,notifications,ai,analytics,payments,labs,maintenance,default", \
+     "--concurrency=4", \
+     "--max-tasks-per-child=100"]

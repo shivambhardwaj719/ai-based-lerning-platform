@@ -1,0 +1,102 @@
+# Default values for ai-learning Helm chart.
+# Override with: helm install ai-learning . -f values.prod.yaml
+
+replicaCount:
+  api: 3
+  worker: 2
+  workerAI: 1
+
+image:
+  registry: ghcr.io
+  repository: your-org/ai-learning
+  tag: latest
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  name: ""
+  annotations: {}
+
+service:
+  type: ClusterIP
+  port: 8000
+
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/rate-limit: "60"
+    nginx.ingress.kubernetes.io/proxy-body-size: "20m"
+  hosts:
+    - host: api.ailearning.example.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: api-tls
+      hosts:
+        - api.ailearning.example.com
+
+resources:
+  api:
+    requests:
+      cpu: 250m
+      memory: 256Mi
+    limits:
+      cpu: "1"
+      memory: 1Gi
+  worker:
+    requests:
+      cpu: 250m
+      memory: 256Mi
+    limits:
+      cpu: "1"
+      memory: 1Gi
+
+autoscaling:
+  api:
+    enabled: true
+    minReplicas: 3
+    maxReplicas: 20
+    targetCPUUtilizationPercentage: 70
+    targetMemoryUtilizationPercentage: 80
+  worker:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 10
+    targetCPUUtilizationPercentage: 80
+
+# External secret — must be created before deploy
+existingSecret: api-secrets
+
+configMap:
+  ENVIRONMENT: production
+  LOG_LEVEL: INFO
+  JSON_LOGS: "true"
+
+postgresql:
+  enabled: false  # Use external managed DB in production
+
+redis:
+  enabled: false  # Use external Redis Cluster in production
+
+nodeSelector: {}
+tolerations: []
+affinity:
+  podAntiAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 100
+        podAffinityTerm:
+          labelSelector:
+            matchExpressions:
+              - key: app.kubernetes.io/name
+                operator: In
+                values:
+                  - ai-learning-api
+          topologyKey: kubernetes.io/hostname

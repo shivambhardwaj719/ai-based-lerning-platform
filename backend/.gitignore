@@ -1,0 +1,98 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.Python
+pip-wheel-metadata/
+share/python-wheels/
+*.manifest
+*.spec
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+.env.local
+.env.*.local
+
+# Environment variables (NEVER commit secrets)
+.env
+.env.*
+!.env.example
+
+# Testing
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+junit.xml
+test-results/
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyright/
+.ruff_cache/
+
+# IDE / editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Alembic
+migrations/versions/*.py
+!migrations/versions/.gitkeep
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Docker
+.docker/
+
+# Kubernetes secrets (never commit real secrets)
+kubernetes/secrets/*.yaml
+!kubernetes/secrets/api-secrets.yaml.example
+
+# Node (if any frontend tooling)
+node_modules/
+.npm
+
+# Build artifacts
+*.tar.gz
+*.zip
+*.whl
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Local development overrides
+docker-compose.override.yml
+docker-compose.local.yml
+
+# MinIO / S3 local data
+minio_data/
+
+# Uploaded files (local dev)
+uploads/
+media/
