@@ -116,7 +116,7 @@ ai-learning-platform/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-org/ai-learning-platform.git
+https://github.com/shivambhardwaj719/ai-based-lerning-platform
 cd ai-learning-platform
 
 # 2. Setup backend environment
